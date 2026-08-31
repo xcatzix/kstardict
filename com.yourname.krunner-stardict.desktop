@@ -1,0 +1,31 @@
+[Desktop Entry]
+Name=KstarDict
+Icon=accessories-dictionary
+Type=Service
+X-KDE-ServiceTypes=Plasma/Runner
+Comment=Translator(Using: tr wOrd) via QStarDict D-Bus(Only EN->CN)
+
+X-Plasma-API=DBus
+X-Plasma-DBusRunner-Service=com.yourname.krunner-stardict
+X-Plasma-DBusRunner-Path=/com/yourname/krunner_stardict
+X-Plasma-Runner-Unique-Results=true
+# X-Plasma-Runner-Request-Match-Prefix=false
+
+X-KDE-PluginInfo-Author=Your Name
+X-KDE-PluginInfo-Name=Kstardict
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true
+
+# 这两行是关键，决定了 KRunner 何时调用你的 Match
+X-Plasma-Runner-Min-Letter-Count=0
+X-Plasma-Runner-Match-Regex=^tr .+
+
+X-Plasma-Runner-Syntax=tr <woRd>
+
+# ==========================================
+# ---*-coding: utf-8-*---
+# Application's name: kstardict
+# Author: xcatzix
+# mailto: 343451012@qq.com
+# ==========================================
