@@ -11,7 +11,7 @@
   * Using ,sharing and so on it in paying money.
 
 ----使用者须知<Start>----
-# kstardict <The dictionary of the king of star>(Using in unix-like system desktop with the krunner) --星王字典
+# kstardict <- The dictionary of the king of star ->(Using in unix-like system desktop with the krunner) --星王字典
     -- [EN] the Instruction of installation in README(below)
     -- [CN] 安装说明看README部分(below)...
     -- [EN] ...English...
@@ -44,7 +44,7 @@
   -- [EN] ...English...
   -- [CN] 由于依赖较少，只要装了krunner的其他类linux桌面环境也应该可用，作者未测试。
 ### Dependence:
-  -- [EN] Dependence: krunner + qstardict + python3 + tkinter(GUI)(* Needing Application installed)
+  -- [EN] Dependence: krunner + qstardict + python3 + tkinter(GUI)
 ### Install:
 ```install.sh(chmod +x ./install.sh)
 #!/usr/bin/env bash
