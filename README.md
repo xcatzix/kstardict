@@ -2,6 +2,7 @@
 * Application's name: kstardict
 * Author: xcatzix
 * mail:343451012@qq.com
+* test version.
 
 # kstardict
   * An excellent dictionary baced on qstardict.
