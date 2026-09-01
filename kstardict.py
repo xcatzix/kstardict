@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-kstardict.py —— KRunner 英文→中文翻译字典
+kstardict.py —— 基于qstardict和krunner的翻译字典
 依赖：KRunner + QStarDict + Python3 + Tkinter
 Author: Xcatzix
+Version: test-v-0.5.50
 """
 
 import re
@@ -521,7 +522,6 @@ class StarDictRunner(dbus.service.Object):
 
         if _last_query == "kstArdict":
             _last_query = ""
-
         else:
             _last_query = q
 
