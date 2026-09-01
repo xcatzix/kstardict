@@ -7,7 +7,7 @@
 # kstardict
   * An excellent dictionary baced on qstardict.
 
-# Using License
+# License
   * Using ,sharing and so on it in paying money.
 
 ----使用者须知<Start>----
