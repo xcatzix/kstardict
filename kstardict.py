@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-kstardict.py —— 基于qstardict和krunner的翻译字典
+kstardict.py —— 基于qstardict和krunner(即:plasma search, ALT+SPACE打开)的翻译字典
 依赖：KRunner + QStarDict + Python3 + Tkinter
 Author: Xcatzix
 Version: test-v-0.5.50
