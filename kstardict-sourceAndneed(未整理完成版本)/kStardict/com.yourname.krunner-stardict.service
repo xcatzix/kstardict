@@ -1,0 +1,11 @@
+[D-BUS Service]
+Name=com.yourname.krunner-stardict
+Exec=/usr/bin/python3 /home/giqorg/.local/bin/kstardict.py
+
+
+# ==========================================
+# ---*-coding: utf-8-*---
+# Application's name: kstardict
+# Author: xcatzix
+# mailto: 343451012@qq.com
+# ==========================================

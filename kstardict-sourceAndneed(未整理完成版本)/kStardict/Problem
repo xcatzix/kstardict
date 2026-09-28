@@ -1,0 +1,71 @@
+🔴 主要 Bug：event.type == "10" 类型不匹配
+
+if event is not None and getattr(event, "type", "") == "10":
+
+Tkinter 的 event.type 是整数，<FocusOut> 对应的值是 10。你这里用字符串 "10" 去比较，结果永远为 False。
+后果：FocusOut 分支永远进不去 → 那个"焦点仍在浮窗内部就不关闭"的保护逻辑完全不生效​ → 用户一点击弹窗内某个控件再移开鼠标（触发 FocusOut），弹窗会直接被销毁。
+修复：改成整数比较：
+
+if event is not None and getattr(event, "type", None) == 10:
+
+🟡 潜在问题
+1. fwidgets 中是否包含了 p 自身？
+
+if new_focus is not None and new_focus in fwidgets:
+    return
+
+如果焦点恰好在弹窗顶层本身（p）而不是某个子部件上，p.focus_get() 可能返回 p。如果 p 不在 fwidgets 集合里，就会漏过检查，弹窗被关闭。
+建议：把 p 也加进判断：
+
+if new_focus is not None and (new_focus == p or new_focus in fwidgets):
+    return
+
+2. fwidgets 的来源
+代码里直接用了 fwidgets，但没看到定义。如果它是全局变量，读取没问题；但建议加一行 global fwidgets 或者把它作为参数传进来，增强可读性和可维护性。
+3. destroy() 抛异常后仍执行后续清理
+
+try:
+    p.destroy()
+except tk.TclError:
+    pass
+_active_popup = None
+_query_tr()
+_dismiss_krunner()
+
+如果 p.destroy() 抛了 TclError（比如窗口已经被销毁），你吞掉了异常，然后仍然把 _active_popup = None 并调用两个清理函数。这个行为大概率是合理的（确保状态被重置），但确认一下 _query_tr() 和 _dismiss_krunner() 在弹窗其实已经不存在的情况下被调用不会出问题就好。
+4. event.type 的跨平台/跨版本兼容性
+虽然 Tk 中 FocusOut = 10 是长期稳定的，但更优雅的写法是直接从 tkinter 导入常量（如果可用）或用字符串事件名判断：
+
+from tkinter import EventType
+# 或者干脆在绑定事件时区分，不用在回调里判断 type
+
+不过这个属于代码风格建议，不是 bug。
+✅ 修正后的版本
+
+def _make_close(p):
+    def _close(event=None):
+        global _active_popup, fwidgets
+        if p != _active_popup:
+            return
+
+        # FocusOut 时：若焦点仍在浮窗内部（含浮窗自身），不关闭
+        if event is not None and getattr(event, "type", None) == 10:
+            try:
+                new_focus = p.focus_get()
+            except tk.TclError:
+                new_focus = None
+            if new_focus is not None and (new_focus == p or new_focus in fwidgets):
+                return
+
+        try:
+            p.destroy()
+        except tk.TclError:
+            pass
+
+        _active_popup = None
+        _query_tr()
+        _dismiss_krunner()
+
+    return _close
+
+一句话总结：最关键的就一件事——把 "10" 改成 10，否则 FocusOut 保护形同虚设。其余都是健壮性层面的小改进。
