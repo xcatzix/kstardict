@@ -1,9 +1,8 @@
-# ==========================================  
-# ---*- coding: utf-8 -*---  
-# Application's name: kstardict  
-# Author: xcatzix  
-# mail:343451012@qq.com  
-# ==========================================  
+-- ---*- coding: utf-8 -*---  
+-- Application's name: kstardict  
+-- Author: xcatzix  
+-- mailto:343451012@qq.com  
+
 ------------使用者须知<Start>---------------  
 # kstardict <The dictionary of the king of star>(Using in unix-like system desktop with the krunner) --星王字典  
     -- [EN] the Instruction of installation in README(below)  
@@ -66,7 +65,7 @@ if [[ "$1" == '-r' ]]; then
         # krunner --daemon &  
 fi  
 ```  
-# ==创作背景=============================================  
+# ==创作背景==  
 # The origin of the kstardict  
      -- 由于wayland合成器特性，使得qstardict字典无法在托盘状态下进行快捷键悬浮窗翻译，也不能适应现今多窗口  
         多任务的桌面环境,对不同窗口的切换及点击,便有了本kstardict字典。(*注 其利用qstardict及krunner软件的  
@@ -82,7 +81,7 @@ fi
           2) 主动调用 `qdbus org.kde.krunner /App query 'tr ', 让 KRunner 保持/重置为 "tr "状态，便于快速输  
              入新单词。  
           3) 单词长度阈值(MIN_WORD_LEN): 单词长度(清洗掉末尾 '.' 后)小于该值的，视为"短词/无效词"，不发起翻  
-             译、不弹窗，关闭已有浮窗并重置KRunner 为 "tr "。默认2，即仅1个字母的单词(如tr a./tr b.)会被忽略,  
+             译、不弹窗，关闭已有浮窗并重置KRunner 为 "tr "。默认2，即仅1个字母的单词(如tr a./tr b.)会被忽略, 
              如需更严格，可将其改为3或更大。  
 # 浮窗视觉(Tkinter，单层Toplevel + 内嵌Frame模拟阴影):  
     -- 仍只使用1个 Toplevel(Wayland下, 单surface，居中稳定、不会分离).  
