@@ -1,9 +1,7 @@
-# ==========================================  
-# ---*- coding: utf-8 -*---  
-# Application's name: kstardict  
-# Author: xcatzix  
-# mail:343451012@qq.com  
-# ==========================================  
+-- -*- coding: utf-8 -*-  
+-- Application's name: kstardict  
+-- Author: xcatzix  
+-- mailto:343451012@qq.com  
 ------------使用者须知<Start>---------------  
 # kstardict <The dictionary of the king of star>(Using in unix-like system desktop with the krunner) --星王字典  
     -- [EN] the Instruction of installation in README(below)  
@@ -67,7 +65,7 @@ if [[ "$1" == '-r' ]]; then
         # krunner --daemon &  
 fi  
 ```  
-# ==创作背景=============================================  
+# ==创作背景==  
 # The origin of the kstardict  
      -- 由于wayland合成器特性，使得qstardict字典无法在托盘状态下进行快捷键悬浮窗翻译，也不能适应现今多窗口  
         多任务的桌面环境,对不同窗口的切换及点击,便有了本kstardict字典。(*注 其利用qstardict及krunner软件的  
