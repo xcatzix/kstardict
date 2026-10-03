@@ -2,8 +2,8 @@
 -- Application's name: kstardict  
 -- Author: xcatzix  
 -- mailto:343451012@qq.com  
-------------使用者须知<Start>---------------  
-# kstardict <The dictionary of the king of star>(Using in unix-like system desktop with the krunner) --星王字典  
+------------使用者须知<Begin>---------------  
+#### [EN][CN] kstardict <The dictionary of the king of star>(Using in unix-like system desktop with the krunner) --星王字典  
     -- [EN] the Instruction of installation in README(below)  
     -- [CN] 安装说明看README部分(below)...  
     -- [EN] ...English...  
@@ -29,15 +29,15 @@
     -- [CN] 浮窗底部状态bar由<字典名称>、<word>、<天气>、<时间>, <下拉指示器>组成,具有点击功能,鼠标悬浮于bar上  
             有提示信息显示(暂未完成,敬请关注).  
 ------------使用者须知<End>-------------------  
-# ==README==  
-## 安装及卸载(install and uninstall)  
-### ENV  
+### [EN][CN] ==README==  
+#### [EN][CN]安装及卸载(install and uninstall)  
+##### ENV  
   -- [EN] ...English...  
   -- [CN] 由于依赖较少，只要装了krunner的其他类linux桌面环境也应该可用，作者未测试。  
-### Dependence:  
+##### [EN][CN] Dependence:  
   -- [EN][CN] Dependence: krunner + qstardict + python3 + tkinter(GUI)  
   -- [EN][CN] Downloading and then installing qstardict:(https://github.com/xcatzix/qstardict)  
-### Install:  
+##### [EN][CN] Installation(below): 
 ```install.sh(chmod +x ./install.sh)  
 #!/usr/bin/env bash  
 if [[ "$1" == '-h' ]] || [[ -z "$1" ]]; then  
@@ -65,12 +65,11 @@ if [[ "$1" == '-r' ]]; then
         # krunner --daemon &  
 fi  
 ```  
-# ==创作背景==  
-# The origin of the kstardict  
+#### [EN][CN] ==(The origin of the kstardict)创作背景:==  
      -- 由于wayland合成器特性，使得qstardict字典无法在托盘状态下进行快捷键悬浮窗翻译，也不能适应现今多窗口  
         多任务的桌面环境,对不同窗口的切换及点击,便有了本kstardict字典。(*注 其利用qstardict及krunner软件的  
         D-Bus接口配合python的轻量级GUI(Tkinter)完成的。)  
-# (features)特性:  
+#### [EN][CN] (features)特性:  
     -- 每次查询都直接调用 qstardict（无本地缓存），保证结果实时、最新。  
     -- 在使用本软件时，会出现截词现象，这是由于qstardict(stardict)未收录使用者所输入的单词，导致其进行了截词  
        查找。如输入earer,其将显示ear翻译。(翻译窗口内，使用者可以清楚看到翻译哪个词.)  
@@ -83,7 +82,7 @@ fi
           3) 单词长度阈值(MIN_WORD_LEN): 单词长度(清洗掉末尾 '.' 后)小于该值的，视为"短词/无效词"，不发起翻  
              译、不弹窗，关闭已有浮窗并重置KRunner 为 "tr "。默认2，即仅1个字母的单词(如tr a./tr b.)会被忽略,  
              如需更严格，可将其改为3或更大。  
-# 浮窗视觉(Tkinter，单层Toplevel + 内嵌Frame模拟阴影):  
+#### 浮窗视觉(Tkinter，单层Toplevel + 内嵌Frame模拟阴影):  
     -- 仍只使用1个 Toplevel(Wayland下, 单surface，居中稳定、不会分离).  
     -- Toplevel背景设为阴影色(SHADOW_COLOR), 内部嵌一个Frame(内容区，POPUP_BG), 四周留出SHADOW_MARGIN像素边  
        距,形成"阴影边框"立体感。  
