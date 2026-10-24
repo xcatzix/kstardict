@@ -55,22 +55,22 @@
 # ====HOSTKEY生成====
 用户必须获取如下信息:
 
--- Windows
-  获取MAC地址信息:
+-- Windows  
+  获取MAC地址信息:  
 """cmd
-   ipconfig /all
+   >$ipconfig /all
 """
 
--- linux/unix
-  获取 MAC 地址：‌
+-- linux/unix  
+  获取 MAC 地址：‌  
 """terminal
-    ip link show
+    >$ip link show
 """
 
--- macOS(MAC)系统
-   获取 MAC 地址：
+-- macOS(MAC)系统  
+   获取 MAC 地址：  
 """terminal
-    ifconfig en0 | grep ether
+    >$ifconfig en0 | grep ether
 """
 
 ( * 以上各系统MAC地址必须保留如下信息:link/ether ac:vc:8f:20:4f:a3 brd ff:ff:ff:ff:ff:ff  (* 即网卡硬件地址行.)
