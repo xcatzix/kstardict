@@ -57,21 +57,21 @@
 
 -- Windows  
   获取MAC地址信息:  
-"""cmd
+```cmd
    >$ipconfig /all
-"""
+```
 
 -- linux/unix  
   获取 MAC 地址：‌  
-"""terminal
+```terminal
     >$ip link show
-"""
+```
 
 -- macOS(MAC)系统  
    获取 MAC 地址：  
-"""terminal
+```terminal
     >$ifconfig en0 | grep ether
-"""
+```
 
 ( * 以上各系统MAC地址必须保留如下信息:link/ether ac:vc:8f:20:4f:a3 brd ff:ff:ff:ff:ff:ff  (* 即网卡硬件地址行.)
 
